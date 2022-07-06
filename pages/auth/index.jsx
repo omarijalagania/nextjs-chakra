@@ -3,21 +3,17 @@ import {
   Button,
   Checkbox,
   Container,
-  Divider,
   FormControl,
   FormLabel,
-  Heading,
   HStack,
   Input,
   Stack,
-  Text,
   useBreakpointValue,
   useColorModeValue,
-} from "@chakra-ui/react"
-import * as React from "react"
-import { Logo } from "./Logo"
-import { OAuthButtonGroup } from "./OAuthButtonGroup"
-import { PasswordField } from "./PasswordField"
+} from "@chakra-ui/react";
+import * as React from "react";
+
+import { PasswordField } from "./PasswordField";
 
 const Auth = () => (
   <Container
@@ -32,31 +28,6 @@ const Auth = () => (
     }}
   >
     <Stack spacing="8">
-      <Stack spacing="6">
-        <Logo />
-        <Stack
-          spacing={{
-            base: "2",
-            md: "3",
-          }}
-          textAlign="center"
-        >
-          <Heading
-            size={useBreakpointValue({
-              base: "xs",
-              md: "sm",
-            })}
-          >
-            Log in to your account
-          </Heading>
-          <HStack spacing="1" justify="center">
-            <Text color="muted">Do not have an account?</Text>
-            <Button variant="link" colorScheme="blue">
-              Sign up
-            </Button>
-          </HStack>
-        </Stack>
-      </Stack>
       <Box
         py={{
           base: "0",
@@ -95,19 +66,11 @@ const Auth = () => (
           </HStack>
           <Stack spacing="6">
             <Button variant="primary">Sign in</Button>
-            <HStack>
-              <Divider />
-              <Text fontSize="sm" whiteSpace="nowrap" color="muted">
-                or continue with
-              </Text>
-              <Divider />
-            </HStack>
-            <OAuthButtonGroup />
           </Stack>
         </Stack>
       </Box>
     </Stack>
   </Container>
-)
+);
 
-export default Auth
+export default Auth;
