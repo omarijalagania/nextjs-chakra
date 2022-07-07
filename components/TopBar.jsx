@@ -14,12 +14,16 @@ import {
   useColorModeValue,
   useBreakpointValue,
   useDisclosure,
+  Input,
+  InputGroup,
+  InputRightElement,
 } from "@chakra-ui/react"
 import {
   HamburgerIcon,
   CloseIcon,
   ChevronDownIcon,
   ChevronRightIcon,
+  SearchIcon,
 } from "@chakra-ui/icons"
 
 export default function TopBar() {
@@ -52,7 +56,12 @@ export default function TopBar() {
             aria-label={"Toggle Navigation"}
           />
         </Flex>
-        <Flex flex={{ base: 1 }} justify={{ base: "center", md: "start" }}>
+
+        <Flex
+          flex={{ base: 1 }}
+          alignItems="center"
+          justify={{ base: "center", md: "start" }}
+        >
           <Text
             textAlign={useBreakpointValue({ base: "center", md: "left" })}
             fontFamily={"heading"}
@@ -61,9 +70,22 @@ export default function TopBar() {
             Logo
           </Text>
 
-          <Flex display={{ base: "none", md: "flex" }} ml={10}>
+          <Flex
+            display={{
+              base: "none",
+              md: "flex",
+            }}
+            ml={10}
+          >
             <DesktopNav />
           </Flex>
+          <Stack mx="auto" spacing={3}>
+            <InputGroup>
+              <Input shadow="sm" placeholder="Search" size="md" />
+              {/* eslint-disable-next-line react/no-children-prop */}
+              <InputRightElement children={<SearchIcon color="#AEC8CA" />} />
+            </InputGroup>
+          </Stack>
         </Flex>
 
         <Stack
