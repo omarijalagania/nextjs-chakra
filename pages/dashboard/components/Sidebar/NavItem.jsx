@@ -1,5 +1,5 @@
-import React from "react";
-import { Flex, Text, Icon, Link, Menu, MenuButton } from "@chakra-ui/react";
+import React from "react"
+import { Flex, Text, Icon, Link, Menu, MenuButton } from "@chakra-ui/react"
 
 export default function NavItem({ icon, title, active, navSize }) {
   return (
@@ -24,7 +24,11 @@ export default function NavItem({ icon, title, active, navSize }) {
                 fontSize="xl"
                 color={active ? "#82AAAD" : "gray.500"}
               />
-              <Text ml={5} display={navSize == "small" ? "none" : "flex"}>
+              <Text
+                noOfLines={1}
+                ml={5}
+                display={navSize == "small" ? "none" : "flex"}
+              >
                 {title}
               </Text>
             </Flex>
@@ -32,5 +36,5 @@ export default function NavItem({ icon, title, active, navSize }) {
         </Link>
       </Menu>
     </Flex>
-  );
+  )
 }

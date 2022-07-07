@@ -1,16 +1,17 @@
 import React from "react"
 import { supabase } from "../../supabase-client"
-import { Flex, Box } from "@chakra-ui/react"
-import Sidebar from "./components/Sidebar/Sidebar"
+import { Box } from "@chakra-ui/react"
 import { DataTable } from "./components/DataTable/DataTable"
 import { columns } from "./components/DataTable/TableColumns"
-import TopBar from "../../components/TopBar"
 
-const index = ({ fb_orders }) => {
+import Statistics from "../../components/Statistics"
+import Layout from "../../components/Layout/Layout"
+
+const index = ({ data }) => {
+  console.log(data)
+
   return (
-    <Flex w="100%">
-      <TopBar />
-      <Sidebar />
+    <Layout>
       <Box
         overflowY="scroll"
         shadow="md"
@@ -21,20 +22,21 @@ const index = ({ fb_orders }) => {
         position="absolute"
         right="0"
       >
-        <DataTable columns={columns} data={fb_orders} />
+        <DataTable columns={columns} data={data} />
       </Box>
-    </Flex>
+      <Box marginTop="300px">
+        <Statistics />
+      </Box>
+    </Layout>
   )
 }
 
 export default index
 
-export const getServerSideProps = async (context) => {
+export const getServerSideProps = async (_context) => {
   const { data: fb_orders, error } = await supabase.from("fb_orders").select()
 
   if (error) {
-    // Return 404 response.
-    // No bikes found or something went wrong with the query
     return {
       notFound: true,
     }
@@ -42,7 +44,7 @@ export const getServerSideProps = async (context) => {
 
   return {
     props: {
-      fb_orders,
+      data: fb_orders,
     },
   }
 }

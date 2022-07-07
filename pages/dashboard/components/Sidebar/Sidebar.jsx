@@ -15,7 +15,8 @@ export default function Sidebar() {
       bg={"white"}
       //   boxShadow="0 4px 12px 0 rgba(0, 0, 0, 0.05)"
       //   borderRadius={navSize == "small" ? "15px" : "30px"}
-      w={navSize == "small" ? "75px" : "200px"}
+      //w={navSize == "small" ? "75px" : "200px"}
+      width="14%"
       flexDir="column"
       justifyContent="space-between"
     >
@@ -40,14 +41,21 @@ export default function Sidebar() {
               src="https://image.shutterstock.com/image-photo/young-handsome-man-beard-wearing-260nw-1768126784.jpg"
             />
             <Flex
+              noOfLines={1}
               flexDir="column"
               ml={4}
               display={navSize == "small" ? "none" : "flex"}
             >
-              <Heading as="h3" size="sm">
+              <Heading
+                as="h3"
+                display={{ base: "none", md: "block" }}
+                size="sm"
+              >
                 Omari Jalagania
               </Heading>
-              <Text color="gray">Admin</Text>
+              <Text display={{ base: "none", md: "block" }} color="gray">
+                Admin
+              </Text>
             </Flex>
           </Flex>
         </Flex>
