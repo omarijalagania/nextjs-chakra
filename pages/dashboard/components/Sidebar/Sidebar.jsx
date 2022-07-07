@@ -1,17 +1,18 @@
-import React, { useState } from "react";
-import { Flex, Text, Divider, Avatar, Heading } from "@chakra-ui/react";
-import { FiHome, FiUser, FiSettings, FiLogOut } from "react-icons/fi";
+import React, { useState } from "react"
+import { Flex, Text, Divider, Avatar, Heading } from "@chakra-ui/react"
+import { FiHome, FiUser, FiSettings, FiLogOut } from "react-icons/fi"
 
-import NavItem from "./NavItem";
+import NavItem from "./NavItem"
 
 export default function Sidebar() {
-  const [navSize, changeNavSize] = useState("large");
+  const [navSize, changeNavSize] = useState("large")
   return (
     <Flex
       pos="sticky"
       left="5"
       h="100vh"
-      marginTop="2.5vh"
+      ml={"20px"}
+      marginTop="5.5vh"
       //   boxShadow="0 4px 12px 0 rgba(0, 0, 0, 0.05)"
       //   borderRadius={navSize == "small" ? "15px" : "30px"}
       w={navSize == "small" ? "75px" : "200px"}
@@ -64,5 +65,5 @@ export default function Sidebar() {
         <NavItem navSize={navSize} icon={FiLogOut} title="Log Out" />
       </Flex>
     </Flex>
-  );
+  )
 }

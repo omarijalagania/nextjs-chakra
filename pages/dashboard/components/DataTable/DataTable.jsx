@@ -1,17 +1,24 @@
-import * as React from "react";
-import { Table, Thead, Tbody, Tr, Th, Td, chakra } from "@chakra-ui/react";
-import { TriangleDownIcon, TriangleUpIcon } from "@chakra-ui/icons";
-import { useTable, useSortBy, Column } from "react-table";
+import * as React from "react"
+import { Table, Thead, Tbody, Tr, Th, Td, chakra } from "@chakra-ui/react"
+import { TriangleDownIcon, TriangleUpIcon } from "@chakra-ui/icons"
+import { useTable, useSortBy, Column } from "react-table"
 
 export function DataTable({ data, columns }) {
   const { getTableProps, getTableBodyProps, headerGroups, rows, prepareRow } =
-    useTable({ columns, data }, useSortBy);
+    useTable({ columns, data }, useSortBy)
 
   return (
-    <Table ml={20} my={"78px"} {...getTableProps()}>
+    <Table {...getTableProps()}>
       <Thead>
         {headerGroups.map((headerGroup) => (
-          <Tr key={Math.random()} {...headerGroup.getHeaderGroupProps()}>
+          <Tr
+            position={"sticky"}
+            backgroundColor="#AEC8CA"
+            top={"0"}
+            width={"100%"}
+            key={Math.random()}
+            {...headerGroup.getHeaderGroupProps()}
+          >
             {headerGroup.headers.map((column) => (
               <Th
                 key={Math.random()}
@@ -35,7 +42,7 @@ export function DataTable({ data, columns }) {
       </Thead>
       <Tbody {...getTableBodyProps()}>
         {rows.map((row) => {
-          prepareRow(row);
+          prepareRow(row)
           return (
             <Tr key={Math.random()} {...row.getRowProps()}>
               {row.cells.map((cell) => (
@@ -48,9 +55,9 @@ export function DataTable({ data, columns }) {
                 </Td>
               ))}
             </Tr>
-          );
+          )
         })}
       </Tbody>
     </Table>
-  );
+  )
 }
