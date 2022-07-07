@@ -10,6 +10,12 @@ import dynamic from "next/dynamic"
 const Statistics = dynamic(() => import("../../components/Statistics"), {
   ssr: false,
 })
+const SimplePieChart = dynamic(
+  () => import("../../components/SimplePieChart"),
+  {
+    ssr: false,
+  }
+)
 
 const index = ({ data }) => {
   console.log(data)
@@ -37,6 +43,9 @@ const index = ({ data }) => {
           bottom={0}
         >
           <Statistics data={data} />
+        </Box>
+        <Box left="55%" position="absolute" bottom={0}>
+          <SimplePieChart data={data} />
         </Box>
       </Flex>
     </Layout>
