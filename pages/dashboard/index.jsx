@@ -1,24 +1,19 @@
 import React from "react"
-import { supabase } from "../../supabase-client"
+import { supabase } from "config"
 import { Box, Flex } from "@chakra-ui/react"
-import { DataTable } from "./components/DataTable/DataTable"
-import { columns } from "./components/DataTable/TableColumns"
-
-import Layout from "../../components/Layout/Layout"
+import { DataTable } from "pages/dashboard/components/DataTable"
+import { columns } from "utils"
+import Layout from "components/Layout"
 import dynamic from "next/dynamic"
 
-const Statistics = dynamic(() => import("../../components/Statistics"), {
+const Statistics = dynamic(() => import("components/Statistics"), {
   ssr: false,
 })
-const SimplePieChart = dynamic(
-  () => import("../../components/SimplePieChart"),
-  {
-    ssr: false,
-  }
-)
+const SimplePieChart = dynamic(() => import("components/SimplePieChart"), {
+  ssr: false,
+})
 
 const index = ({ data }) => {
-  console.log(data)
   return (
     <Layout>
       <Box
@@ -33,18 +28,17 @@ const index = ({ data }) => {
       >
         <DataTable columns={columns} data={data} />
       </Box>
-      <Flex>
-        <Box
-          marginTop="50px"
-          left="15%"
-          shadow="md"
-          p={10}
-          position="absolute"
-          bottom={0}
-        >
+      <Flex
+        position="absolute"
+        marginTop="75px"
+        left={"15%"}
+        bottom={0}
+        alignItems="center"
+      >
+        <Box shadow="md" padding={10}>
           <Statistics data={data} />
         </Box>
-        <Box left="55%" position="absolute" bottom={0}>
+        <Box shadow="md" padding={10}>
           <SimplePieChart data={data} />
         </Box>
       </Flex>

@@ -1,4 +1,4 @@
-import React, { useCallback, useState } from "react"
+import React from "react"
 import { PieChart, Pie, Cell } from "recharts"
 
 const data = [
@@ -38,11 +38,11 @@ const renderCustomizedLabel = ({
 }
 export default function SimplePieChart() {
   return (
-    <PieChart width={400} height={400}>
+    <PieChart width={330} height={250}>
       <Pie
         data={data}
-        cx={200}
-        cy={200}
+        cx={150}
+        cy={120}
         labelLine={false}
         label={renderCustomizedLabel}
         outerRadius={100}

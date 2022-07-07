@@ -25,4 +25,4 @@ export const columns = [
     accessor: "price",
     isNumeric: true,
   },
-];
+]

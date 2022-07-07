@@ -10,10 +10,10 @@ import {
   Stack,
   useBreakpointValue,
   useColorModeValue,
-} from "@chakra-ui/react";
-import * as React from "react";
-import Link from "next/link";
-import { PasswordField } from "../components/PasswordField";
+} from "@chakra-ui/react"
+import * as React from "react"
+import Link from "next/link"
+import { PasswordField } from "components"
 
 export default function Home() {
   return (
@@ -74,5 +74,5 @@ export default function Home() {
         </Box>
       </Stack>
     </Container>
-  );
+  )
 }

@@ -1,6 +1,6 @@
 import React, { useState } from "react"
 import { Flex, Text, Divider, Avatar, Heading } from "@chakra-ui/react"
-import { FiHome, FiUser, FiSettings, FiLogOut } from "react-icons/fi"
+import { FiHome, FiUser, FiSettings } from "react-icons/fi"
 
 import NavItem from "./NavItem"
 

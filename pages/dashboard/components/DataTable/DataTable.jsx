@@ -1,9 +1,9 @@
 import * as React from "react"
 import { Table, Thead, Tbody, Tr, Th, Td, chakra } from "@chakra-ui/react"
 import { TriangleDownIcon, TriangleUpIcon } from "@chakra-ui/icons"
-import { useTable, useSortBy, Column } from "react-table"
+import { useTable, useSortBy } from "react-table"
 
-export function DataTable({ data, columns }) {
+function DataTable({ data, columns }) {
   const { getTableProps, getTableBodyProps, headerGroups, rows, prepareRow } =
     useTable({ columns, data }, useSortBy)
 
@@ -61,3 +61,5 @@ export function DataTable({ data, columns }) {
     </Table>
   )
 }
+
+export default DataTable

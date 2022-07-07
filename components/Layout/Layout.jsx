@@ -1,7 +1,7 @@
 import { Flex } from "@chakra-ui/react"
 import React from "react"
-import Sidebar from "../../pages/dashboard/components/Sidebar/Sidebar"
-import TopBar from "../TopBar"
+import { Sidebar } from "pages/dashboard/components/Sidebar"
+import { TopBar } from "components"
 
 const Layout = ({ children }) => {
   return (
