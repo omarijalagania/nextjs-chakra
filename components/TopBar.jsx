@@ -72,27 +72,25 @@ export default function TopBar() {
           direction={"row"}
           spacing={6}
         >
-          <Button
-            as={"a"}
-            fontSize={"sm"}
-            fontWeight={400}
-            variant={"link"}
-            href={"#"}
-          >
-            Sign In
-          </Button>
-          <Button
-            display={{ base: "none", md: "inline-flex" }}
-            fontSize={"sm"}
-            fontWeight={600}
-            color={"white"}
-            bg={"pink.400"}
+          <Link
+            href="/"
             _hover={{
-              bg: "pink.300",
+              textDecoration: "none",
             }}
           >
-            Sign Up
-          </Button>
+            <Button
+              display={{ base: "none", md: "inline-flex" }}
+              fontSize={"sm"}
+              fontWeight={600}
+              color={"white"}
+              bg={"pink.400"}
+              _hover={{
+                bg: "pink.300",
+              }}
+            >
+              Log Out
+            </Button>
+          </Link>
         </Stack>
       </Flex>
 
