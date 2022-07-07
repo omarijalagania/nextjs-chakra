@@ -9,15 +9,45 @@ import {
   TableContainer,
   Flex,
   Spacer,
+  Box,
 } from "@chakra-ui/react";
 import Sidebar from "../../components/sidebar/Sidebar";
+import { DataTable } from "./DataTable";
 
 const index = ({ fb_orders }) => {
+  const columns = [
+    {
+      Header: "Name",
+      accessor: "first_name",
+    },
+    {
+      Header: "Address",
+      accessor: "billing_address",
+    },
+    {
+      Header: "Country",
+      accessor: "country",
+    },
+
+    {
+      Header: "Status",
+      accessor: "transaction_status_description",
+    },
+    {
+      Header: "Company",
+      accessor: "official_company_name",
+    },
+    {
+      Header: "Price",
+      accessor: "price",
+      isNumeric: true,
+    },
+  ];
   return (
     <Flex w="100%">
       <Sidebar />
       {/* <Spacer /> */}
-      <TableContainer>
+      {/* <TableContainer>
         <Table variant="simple">
           <Thead>
             <Tr>
@@ -32,7 +62,10 @@ const index = ({ fb_orders }) => {
             return <TableOrders key={order.id} order={order} />;
           })}
         </Table>
-      </TableContainer>
+      </TableContainer> */}
+      <Box>
+        <DataTable columns={columns} data={fb_orders} />
+      </Box>
     </Flex>
   );
 };
