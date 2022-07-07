@@ -1,68 +1,14 @@
 import React from "react";
 import { supabase } from "../../supabase-client";
-import TableOrders from "./Table";
-import {
-  Table,
-  Thead,
-  Tr,
-  Th,
-  TableContainer,
-  Flex,
-  Spacer,
-  Box,
-} from "@chakra-ui/react";
-import Sidebar from "../../components/sidebar/Sidebar";
-import { DataTable } from "./DataTable";
+import { Flex, Box } from "@chakra-ui/react";
+import Sidebar from "./components/Sidebar/Sidebar";
+import { DataTable } from "./components/DataTable/DataTable";
+import { columns } from "./components/DataTable/TableColumns";
 
 const index = ({ fb_orders }) => {
-  const columns = [
-    {
-      Header: "Name",
-      accessor: "first_name",
-    },
-    {
-      Header: "Address",
-      accessor: "billing_address",
-    },
-    {
-      Header: "Country",
-      accessor: "country",
-    },
-
-    {
-      Header: "Status",
-      accessor: "transaction_status_description",
-    },
-    {
-      Header: "Company",
-      accessor: "official_company_name",
-    },
-    {
-      Header: "Price",
-      accessor: "price",
-      isNumeric: true,
-    },
-  ];
   return (
     <Flex w="100%">
       <Sidebar />
-      {/* <Spacer /> */}
-      {/* <TableContainer>
-        <Table variant="simple">
-          <Thead>
-            <Tr>
-              <Th>Order Status</Th>
-              <Th>Country</Th>
-              <Th isNumeric>Price</Th>
-              <Th>Name</Th>
-              <Th>Email</Th>
-            </Tr>
-          </Thead>
-          {fb_orders.map((order) => {
-            return <TableOrders key={order.id} order={order} />;
-          })}
-        </Table>
-      </TableContainer> */}
       <Box>
         <DataTable columns={columns} data={fb_orders} />
       </Box>

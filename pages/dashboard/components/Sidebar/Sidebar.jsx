@@ -1,24 +1,7 @@
 import React, { useState } from "react";
-import {
-  Flex,
-  Text,
-  IconButton,
-  Divider,
-  Avatar,
-  Heading,
-  Button,
-} from "@chakra-ui/react";
-import {
-  FiMenu,
-  FiHome,
-  FiCalendar,
-  FiUser,
-  FiDollarSign,
-  FiBriefcase,
-  FiSettings,
-  FiLogOut,
-} from "react-icons/fi";
-import { IoPawOutline } from "react-icons/io5";
+import { Flex, Text, Divider, Avatar, Heading } from "@chakra-ui/react";
+import { FiHome, FiUser, FiSettings, FiLogOut } from "react-icons/fi";
+
 import NavItem from "./NavItem";
 
 export default function Sidebar() {
@@ -42,17 +25,6 @@ export default function Sidebar() {
         alignItems={navSize == "small" ? "center" : "flex-start"}
         as="nav"
       >
-        {/* <IconButton
-          background="none"
-          mt={5}
-          _hover={{ background: "none" }}
-          icon={<FiMenu />}
-          onClick={() => {
-            if (navSize == "small") changeNavSize("large");
-            else changeNavSize("small");
-          }}
-        /> */}
-
         {/* User Section */}
         <Flex
           p="2%"
@@ -78,7 +50,6 @@ export default function Sidebar() {
             </Flex>
           </Flex>
         </Flex>
-
         <Divider display={navSize == "small" ? "none" : "flex"} />
         {/* Button Section */}
         <NavItem
