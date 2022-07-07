@@ -1,15 +1,18 @@
 import React from "react"
 import { supabase } from "../../supabase-client"
-import { Box } from "@chakra-ui/react"
+import { Box, Flex } from "@chakra-ui/react"
 import { DataTable } from "./components/DataTable/DataTable"
 import { columns } from "./components/DataTable/TableColumns"
 
-import Statistics from "../../components/Statistics"
 import Layout from "../../components/Layout/Layout"
+import dynamic from "next/dynamic"
+
+const Statistics = dynamic(() => import("../../components/Statistics"), {
+  ssr: false,
+})
 
 const index = ({ data }) => {
   console.log(data)
-
   return (
     <Layout>
       <Box
@@ -24,9 +27,18 @@ const index = ({ data }) => {
       >
         <DataTable columns={columns} data={data} />
       </Box>
-      <Box marginTop="300px">
-        <Statistics />
-      </Box>
+      <Flex>
+        <Box
+          marginTop="50px"
+          left="15%"
+          shadow="md"
+          p={10}
+          position="absolute"
+          bottom={0}
+        >
+          <Statistics data={data} />
+        </Box>
+      </Flex>
     </Layout>
   )
 }
