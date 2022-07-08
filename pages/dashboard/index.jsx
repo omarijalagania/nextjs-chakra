@@ -1,10 +1,11 @@
 import React from "react"
 import { supabase } from "config"
 import { Box, Flex } from "@chakra-ui/react"
-import { DataTable } from "pages/dashboard/components/DataTable"
+import DataTable from "pages/dashboard/components/DataTable"
 import { columns } from "utils"
 import Layout from "components/Layout"
 import dynamic from "next/dynamic"
+import moment from "moment"
 
 const Statistics = dynamic(() => import("components/Statistics"), {
   ssr: false,
@@ -14,11 +15,9 @@ const SimplePieChart = dynamic(() => import("components/SimplePieChart"), {
 })
 
 const index = ({ data }) => {
-  console.log("🚀 ~ index ~ data", data)
-
   const filteredData = data.filter(
     (item) =>
-      (item.created_at = item.created_at.replace(/T|-/g, "/").slice(0, 16))
+      (item.created_at = moment(item.created_at).format("YYYY-MM-DD hh:mm")),
   )
 
   return (

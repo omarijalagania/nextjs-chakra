@@ -3,7 +3,7 @@ import { Table, Thead, Tbody, Tr, Th, Td, chakra } from "@chakra-ui/react"
 import { TriangleDownIcon, TriangleUpIcon } from "@chakra-ui/icons"
 import { useTable, useSortBy } from "react-table"
 
-function DataTable({ data, columns }) {
+const DataTable = ({ data, columns }) => {
   const { getTableProps, getTableBodyProps, headerGroups, rows, prepareRow } =
     useTable({ columns, data }, useSortBy)
 
@@ -47,6 +47,7 @@ function DataTable({ data, columns }) {
             <Tr key={Math.random()} {...row.getRowProps()}>
               {row.cells.map((cell) => (
                 <Td
+                  fontSize="13px"
                   key={Math.random()}
                   {...cell.getCellProps()}
                   isNumeric={cell.column.isNumeric}

@@ -10,7 +10,6 @@ import {
 } from "recharts"
 
 export const Statistics = ({ data }) => {
-  console.log(data)
   return (
     <BarChart width={730} height={250} data={data}>
       <CartesianGrid strokeDasharray="3 3" />
