@@ -11,7 +11,7 @@ import {
 import * as React from "react"
 import { HiEye, HiEyeOff } from "react-icons/hi"
 
-export const PasswordField = React.forwardRef((props, ref) => {
+const PasswordField = React.forwardRef((props, ref) => {
   const { isOpen, onToggle } = useDisclosure()
   const inputRef = React.useRef(null)
   const mergeRef = useMergeRefs(inputRef, ref)
@@ -52,3 +52,5 @@ export const PasswordField = React.forwardRef((props, ref) => {
   )
 })
 PasswordField.displayName = "PasswordField"
+
+export default PasswordField
