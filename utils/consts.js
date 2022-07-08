@@ -1,11 +1,11 @@
 export const columns = [
   {
-    Header: "Name",
-    accessor: "first_name",
+    Header: "Created",
+    accessor: "created_at",
   },
   {
-    Header: "Address",
-    accessor: "billing_address",
+    Header: "Company",
+    accessor: "official_company_name",
   },
   {
     Header: "Country",
@@ -13,16 +13,40 @@ export const columns = [
   },
 
   {
-    Header: "Status",
-    accessor: "transaction_status_description",
+    Header: "Address",
+    accessor: "billing_address",
   },
   {
-    Header: "Company",
-    accessor: "official_company_name",
+    Header: "Phone",
+    accessor: "phone_number",
+  },
+  {
+    Header: "First Name",
+    accessor: "first_name",
+  },
+  {
+    Header: "Last Name",
+    accessor: "last_name",
+  },
+  {
+    Header: "Email",
+    accessor: "email",
   },
   {
     Header: "Price",
-    accessor: "price",
+    accessor: "paid_price",
     isNumeric: true,
+  },
+  {
+    Header: "Status",
+    accessor: "status",
+  },
+  {
+    Header: "Package",
+    accessor: "purchased_package_name",
+  },
+  {
+    Header: "Description",
+    accessor: "transaction_status_description",
   },
 ]

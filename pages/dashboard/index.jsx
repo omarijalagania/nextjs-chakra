@@ -14,6 +14,13 @@ const SimplePieChart = dynamic(() => import("components/SimplePieChart"), {
 })
 
 const index = ({ data }) => {
+  console.log("🚀 ~ index ~ data", data)
+
+  const filteredData = data.filter(
+    (item) =>
+      (item.created_at = item.created_at.replace(/T|-/g, "/").slice(0, 16))
+  )
+
   return (
     <Layout>
       <Box
@@ -21,7 +28,7 @@ const index = ({ data }) => {
         shadow="md"
         my={"78px"}
         maxHeight="50vh"
-        overflowX="hidden"
+        overflowX="scroll"
         width="85%"
         position="absolute"
         right="0"
