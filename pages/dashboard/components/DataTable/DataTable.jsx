@@ -10,51 +10,58 @@ const DataTable = ({ data, columns }) => {
   return (
     <Table {...getTableProps()}>
       <Thead>
-        {headerGroups.map((headerGroup) => (
-          <Tr
-            position={"sticky"}
-            backgroundColor="#AEC8CA"
-            top={"0"}
-            width={"100%"}
-            key={Math.random()}
-            {...headerGroup.getHeaderGroupProps()}
-          >
-            {headerGroup.headers.map((column) => (
-              <Th
-                key={Math.random()}
-                {...column.getHeaderProps(column.getSortByToggleProps())}
-                isNumeric={column.isNumeric}
-              >
-                {column.render("Header")}
-                <chakra.span pl="4">
-                  {column.isSorted ? (
-                    column.isSortedDesc ? (
-                      <TriangleDownIcon aria-label="sorted descending" />
-                    ) : (
-                      <TriangleUpIcon aria-label="sorted ascending" />
-                    )
-                  ) : null}
-                </chakra.span>
-              </Th>
-            ))}
-          </Tr>
-        ))}
+        {headerGroups.map((headerGroup) => {
+          const { key, ...restHeaderGroupProps } =
+            headerGroup.getHeaderGroupProps()
+          return (
+            <Tr
+              position={"sticky"}
+              backgroundColor="#AEC8CA"
+              top={"0"}
+              width={"100%"}
+              key={key}
+              {...restHeaderGroupProps}
+            >
+              {headerGroup.headers.map((column) => {
+                const { key, ...restColumn } = column.getSortByToggleProps()
+                return (
+                  <Th key={key} {...restColumn} isNumeric={column.isNumeric}>
+                    {column.render("Header")}
+                    <chakra.span pl="4">
+                      {column.isSorted ? (
+                        column.isSortedDesc ? (
+                          <TriangleDownIcon aria-label="sorted descending" />
+                        ) : (
+                          <TriangleUpIcon aria-label="sorted ascending" />
+                        )
+                      ) : null}
+                    </chakra.span>
+                  </Th>
+                )
+              })}
+            </Tr>
+          )
+        })}
       </Thead>
       <Tbody {...getTableBodyProps()}>
         {rows.map((row) => {
           prepareRow(row)
+          const { key, ...restRowProps } = row.getRowProps()
           return (
-            <Tr key={Math.random()} {...row.getRowProps()}>
-              {row.cells.map((cell) => (
-                <Td
-                  fontSize="13px"
-                  key={Math.random()}
-                  {...cell.getCellProps()}
-                  isNumeric={cell.column.isNumeric}
-                >
-                  {cell.render("Cell")}
-                </Td>
-              ))}
+            <Tr key={key} {...restRowProps}>
+              {row.cells.map((cell) => {
+                const { key, ...restCellProps } = cell.getCellProps()
+                return (
+                  <Td
+                    fontSize="13px"
+                    key={key}
+                    {...restCellProps}
+                    isNumeric={cell.column.isNumeric}
+                  >
+                    {cell.render("Cell")}
+                  </Td>
+                )
+              })}
             </Tr>
           )
         })}
